@@ -2,11 +2,10 @@ const mongoose=require('mongoose');
 
 const schema=mongoose.Schema;
 const eventSchema = new schema({
-    email: String,
+    description: String,
     eventName: String,
     eventId: Number,
-    eventDate: Date,
-    evntLocation: String
+    eventDate: String,
 })
 
 module.exports=mongoose.model('event',eventSchema,'events');

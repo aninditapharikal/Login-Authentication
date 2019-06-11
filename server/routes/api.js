@@ -88,61 +88,32 @@ router.post('/login',(req,res)=>{
 })
 
 router.get('/events', (req,res)=>{
-    let events=[
-        {
-            "_id":"1",
-            "name":"Auto Expo1",
-            "description":"lorem ipsum1",
-            "date":"2016-07-27T07:45:00Z"
-        },{
-            "_id":"2",
-            "name":"Auto Expo2",
-            "description":"lorem ipsum2",
-            "date":"2016-07-27T07:45:00Z"
-        },
-        {
-            "_id":"3",
-            "name":"Auto Expo3",
-            "description":"lorem ipsum3",
-            "date":"2016-07-27T07:45:00Z"
-        },{
-            "_id":"4",
-            "name":"Auto Expo4",
-            "description":"lorem ipsum4",
-            "date":"2016-07-27T07:45:00Z"
+    
+    Event.find((error,events)=>{
+        if(error){
+            console.log('error');
+        }else{
+            let payload=({subject:user._id});
+            var token =jwt.sign(payload,'secretKey');
+            res.status(200).send({token},events);
         }
-    ]
+    })
 
-    res.json(events);
+    
 })
 
 router.get('/special',verifyToken, (req,res)=>{
-    let events=[
-        {
-            "_id":"1",
-            "name":"Auto Expo1",
-            "description":"lorem ipsum1",
-            "date":"2016-07-27T07:45:00Z"
-        },{
-            "_id":"2",
-            "name":"Auto Expo2",
-            "description":"lorem ipsum2",
-            "date":"2016-07-27T07:45:00Z"
-        },
-        {
-            "_id":"3",
-            "name":"Auto Expo3",
-            "description":"lorem ipsum3",
-            "date":"2016-07-27T07:45:00Z"
-        },{
-            "_id":"4",
-            "name":"Auto Expo4",
-            "description":"lorem ipsum4",
-            "date":"2016-07-27T07:45:00Z"
-        }
-    ]
+    
+        Event.find((error,events)=>{
+            if(error){
+                console.log('error');
+            }else{
+                let payload=({subject:user._id});
+                var token =jwt.sign(payload,'secretKey');
+                res.status(200).send({token},events);
+            }
+        })
 
-    res.json(events);
 })
 
 module.exports=router;

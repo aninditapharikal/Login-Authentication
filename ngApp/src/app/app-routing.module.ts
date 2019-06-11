@@ -5,7 +5,6 @@ import {SpecialEventsComponent} from './special-events/special-events.component'
 import {RegisterComponent} from './register/register.component'
 import {LoginComponent} from './login/login.component'
 import {AuthGuard} from './auth.guard'
-import {CreateEventsComponent} from './create-events/create-events.component'
 
 
 const routes: Routes = [{
@@ -15,10 +14,6 @@ const routes: Routes = [{
 },{
   path:'events',
   component: EventsComponent
-},
-{
-  path:'createEvents',
-  component: CreateEventsComponent
 },
 {
   path:'special',
